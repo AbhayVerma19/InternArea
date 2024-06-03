@@ -1,14 +1,14 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import "./intern.css";
-import InternShipData from "../../Data/InternshipDatAvl";
+import "./job.css";
+import JobData from "../../Data/JobsDataAvl";
 import compLogo from "../../Assets/netflix.png";
 import { Link } from "react-router-dom";
 
-function Intern() {
+function JobAvl() {
   const [serachCategory, setSearchCategory] = useState("");
   const [searchLoaction, setSearchLocation] = useState("");
-  const [filterInternship, setFilterInternship] = useState([]);
+  const [filterJob, setFilterJob] = useState([]);
   const [isDivVisible, setDivVisible] = useState(false);
 
   const [InternData, setInternData] = useState([]);
@@ -23,30 +23,30 @@ function Intern() {
   const handleCategoryChange = (e) => {
     const categeoryValue = e.target.value;
     setSearchCategory(categeoryValue);
-    setFilterInternship([categeoryValue, searchLoaction]);
+    setFilterJob([categeoryValue, searchLoaction]);
   };
 
   const handleCategoryLocationChange = (e) => {
     const loactionValue = e.target.value;
     setSearchLocation(loactionValue);
-    setFilterInternship([serachCategory, loactionValue]);
+    setFilterJob([serachCategory, loactionValue]);
   };
 
-  const filterInterships = (category, location) => {
+  const filterJobs = (category, location) => {
     if (InternData && InternData.length > 0) {}
-      const filterData = InternShipData.filter(
+      const filterData = JobData.filter(
         (internship) =>
           internship.category.toLowerCase().includes(category.toLowerCase()) &&
           internship.location.toLowerCase().includes(location.toLowerCase())
       );
-      setFilterInternship(filterData);
+      setFilterJob(filterData);
     
   };
 
   useEffect(() => {
-    filterInterships(serachCategory, searchLoaction);
+    filterJobs(serachCategory, searchLoaction);
   }, [searchLoaction, serachCategory]);
-  console.log(filterInternship);
+  console.log(filterJob);
 
   return (
     <>
@@ -58,7 +58,7 @@ function Intern() {
               Filter
             </p>
             <div className="fill flex flex-col ml-2">
-              <label htmlFor="pro">Profile</label>
+              <label htmlFor="pro" >Profile</label>
               <input
                 type="text"
                 id="pro"
@@ -96,10 +96,10 @@ function Intern() {
                 />
                 <label htmlFor="pt">Part-time</label>
               </div>
-              <p>Desired minimum monthly Stipend (₹)</p>
+              <p>Salary Anually (in lakhs) (₹)</p>
               <input type="range" name="" id="" />
               <p className="mt-2 ml-3 mr-3">
-                0 2K &nbsp; 4k &nbsp; 6K &nbsp; 8k &nbsp; 10K
+                4 6 &nbsp; 8 &nbsp; 12 &nbsp; 16 &nbsp; 20
               </p>
             </div>
 
@@ -111,8 +111,9 @@ function Intern() {
             </span>
           </div>
           <div className="search-2">
-            <div className="search-container">
-              <input type="text" placeholder="eg. Design Media MBA" />
+            <label className="mt-1 ml-1" htmlFor="ex">Experience</label>
+            <div className="search-container -mt-6">
+              <input type="text" id="ex" placeholder="0-1 Year" />
               <div className="search-icon">
                 <i class="bi bi-search"></i>
               </div>
@@ -128,9 +129,9 @@ function Intern() {
         <div className="all-internships">
         
           <p className="head font-bold text-lg text-center ">
-            {filterInternship.length} total internships
+            {filterJob.length} total internships
           </p>
-        {filterInternship.map((data, index) => (
+        {filterJob.map((data, index) => (
           <div className="shadow-lg rounded-lg bg-white m-7 " id="display">
             <div className="m-4">
               <p className="mb-4 mt-3" id="boxer">
@@ -161,18 +162,18 @@ function Intern() {
 
                   <p className="mt-3">
                     {" "}
-                    <i class="bi bi-calendar-check-fill"></i> Duration <br />
-                    {data.Duration}
+                    <i class="bi bi-calendar-check-fill"></i> Experience <br />
+                      {data.Experience} Years
                   </p>
 
                   <p className="mt-3">
                     {" "}
-                    <i class="bi bi-cash"></i> Stipend <br /> {data.stipend}
+                    <i class="bi bi-cash"></i> Salary <br /> {data.CTC}
                   </p>
                 </div>
               </div>
               <span className="bg-slate-200 text-slate-400 w-20 rounded-sm text-center">
-                Internship
+                Job
               </span>
               <br />
               <span>
@@ -197,4 +198,4 @@ function Intern() {
   );
 }
 
-export default Intern;
+export default JobAvl;

@@ -36,6 +36,11 @@ function Job() {
   return (
     <div>
       <div className="info-intern mt-12">
+      <div className="mt-16">
+            <h1 className="text-center text-3xl  font-bold">
+              Latest Jobs on Intern Area
+            </h1>
+          </div>
         <div className="categories flex flex-wrap mt-14">
           <p>POPULAR CATEGORIES :</p>
           <span
@@ -117,18 +122,18 @@ function Job() {
                 <i className="bi bi-arrow-up-right text-blue-500"></i> Actively
                 Hiring
               </p>
-              <p>{data.title}</p>
+              <p className="text-left">{data.title}</p>
               <small className="text-slate-400 text-sm">{data.company}</small>
 
-              <hr className="mt-5" />
-              <p className="mt-3">
+              <hr className="mb-2" />
+              <p className="mt-3 text-left">
                 <i class="bi bi-geo-alt-fill"></i> {data.location}{" "}
               </p>
-              <p className="mt-1">
+              <p className="mt-1 text-left">
                 {" "}
                 <i class="bi bi-cash-stack"></i> {data.CTC}
               </p>
-              <p className="mt-1">
+              <p className="mt-1 text-left">
                 <i class="bi bi-calendar-fill"></i> {data.Experience}
               </p>
               <div className="more flex justify-between mt-6">

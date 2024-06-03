@@ -1,13 +1,23 @@
 import "./App.css";
-import Navbar from "./Components/Navbar/Navbar";
-import Home from "./Components/Home/Home";
 import Footer from "./Components/Footer/Footer";
-
+import Home from "./Components/Home/Home";
+import Navbar from "./Components/Navbar/Navbar";
+import { Routes, Route } from "react-router-dom";
+import Register from "./Components/auth/Register";
+import Intern from "./Components/Internships/Intern";
+import JobAvl from "./Components/Job/JobAvl";
+import JobDetail from "./Components/Job/JobDetail";
+import InternDeatil from "./Components/Internships/InternDetail";
 function App() {
   return (
     <div className="App">
       <Navbar />
-      <Home />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/internship" element={<Intern />} />
+        <Route path="/Jobs" element={<JobAvl />} />
+      </Routes>
       <Footer />
     </div>
   );

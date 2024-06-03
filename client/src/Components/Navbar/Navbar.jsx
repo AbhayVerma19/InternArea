@@ -54,21 +54,29 @@ function Navbar() {
 
 
         const showInternShips=()=>{
-            document.getElementById("ico").className="bi bi-caret-up-fill"
-            setDivVisibleForintern(true)
+            
+            if(isDivVisibleForintern===false){
+                setDivVisibleForintern(true)
+                document.getElementById("ico").className="bi bi-caret-up-fill"
+            }
+            else{
+                setDivVisibleForintern(false)
+                document.getElementById("ico").className="bi bi-caret-down-fill"
+            }
+                
         }
-        const hideInternShips=()=>{
-            document.getElementById("ico").className="bi bi-caret-down-fill"
-            setDivVisibleForintern(false)
-        }
+        
         const showJobs=()=>{
-            document.getElementById("ico2").className="bi bi-caret-up-fill"
-            setDivVisibleFroJob(true)
+            if(isDivVisibleForintern===false){
+                setDivVisibleForintern(true)
+                document.getElementById("ico2").className="bi bi-caret-up-fill"
+            }
+            else{
+                setDivVisibleForintern(false)
+                document.getElementById("ico2").className="bi bi-caret-down-fill"
+            }
         }
-        const hideJobs=()=>{
-            document.getElementById("ico2").className="bi bi-caret-down-fill"
-            setDivVisibleFroJob(false)
-        }
+        
 
         const logoutFunction=()=>{
             signOut(auth)
@@ -84,8 +92,8 @@ function Navbar() {
       <Link to={"/"}><img src={logo} alt="" srcset="" /></Link>  
     </div>
     <div className="elem">
-     <Link to={"/Internship"}>   <p id='int' className='' onMouseEnter={showInternShips} > Internships  <i onClick={hideInternShips}  id='ico' class="bi bi-caret-down-fill"></i></p></Link>
-       <Link to={"/Jobs"}> <p onMouseEnter={showJobs} >Jobs  <i class="bi bi-caret-down-fill" id='ico2' onClick={hideJobs}></i></p></Link>
+    <p id='int' className=''  ><Link to={"/Internship"}>    Internships </Link> <i onClick={showInternShips}  id='ico' class="bi bi-caret-down-fill"></i></p>
+        <p><Link to={"/Jobs"}>Jobs  </Link><i class="bi bi-caret-down-fill" id='ico2' onClick={showJobs}></i></p>
     </div>
     <div className="search">
     <i class="bi bi-search"></i>

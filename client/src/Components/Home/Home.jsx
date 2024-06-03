@@ -67,7 +67,7 @@ function Home() {
       <div className="infoys">
         <div className="info-intern">
           <div className="mt-16">
-            <h1 className="text-center font-bold">
+            <h1 className="text-center text-3xl  font-bold">
               Latest internships on Intern Area
             </h1>
           </div>
@@ -158,23 +158,16 @@ function Home() {
                   <i className="bi bi-arrow-up-right text-blue-500"></i>{" "}
                   Actively Hiring
                 </p>
-                <p>{data.title}</p>
+                <p className="text-left">{data.title}</p>
                 <small className="text-slate-400 text-sm">
                   {" "}
                   {data.company}
                 </small>
 
-                <hr className="mt-5" />
-                <p className="mt-3">
-                  <i class="bi bi-geo-alt-fill"></i> {data.location}{" "}
-                </p>
-                <p className="mt-1">
-                  {" "}
-                  <i class="bi bi-cash-stack"></i> {data.stipend}
-                </p>
-                <p className="mt-1">
-                  <i class="bi bi-calendar-fill"></i> {data.Duration}
-                </p>
+                <hr className='mb-2' />
+        <p className='mt-3 text-left' ><i class="bi bi-geo-alt-fill"></i> {data.location}  </p>
+        <p className='mt-1 text-left'> <i class="bi bi-cash-stack"></i> {data.stipend}</p>
+        <p className='mt-1 text-left'><i class="bi bi-calendar-fill"></i> {data.Duration}</p>
 
                 <div className="more flex justify-between mt-6">
                   <span className="bg-slate-200 text-slate-400 w-20 rounded-sm text-center">
