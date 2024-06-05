@@ -1,17 +1,32 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import "./intern.css";
-import InternShipData from "../../Data/InternshipDatAvl";
 import compLogo from "../../Assets/netflix.png";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 function Intern() {
   const [serachCategory, setSearchCategory] = useState("");
   const [searchLoaction, setSearchLocation] = useState("");
   const [filterInternship, setFilterInternship] = useState([]);
   const [isDivVisible, setDivVisible] = useState(false);
-
   const [InternData, setInternData] = useState([]);
+
+  useEffect(()=>{
+    const fetchData= async()=>{
+        try {
+        const response= await axios.get(`http://localhost:5000/api/internship`)
+        setInternData(response.data)
+        setFilterInternship(response.data)
+        console.log(filterInternship)
+        console.log(InternData)
+    } catch (error) {
+           console.log(error) 
+    }
+}
+fetchData();
+},[])
+
 
   const showDiv = () => {
     setDivVisible(true);
@@ -32,15 +47,20 @@ function Intern() {
     setFilterInternship([serachCategory, loactionValue]);
   };
 
-  const filterInterships = (category, location) => {
-    if (InternData && InternData.length > 0) {}
-      const filterData = InternShipData.filter(
+  const filterInterships = (category="", location="") => {
+    if (InternData && InternData.length > 0) {
+      const filterData = InternData.filter(
         (internship) =>
-          internship.category.toLowerCase().includes(category.toLowerCase()) &&
-          internship.location.toLowerCase().includes(location.toLowerCase())
+          (internship.category || "").toLowerCase().includes((category || "").toLowerCase()) &&
+        (internship.location || "").toLowerCase().includes((location || "").toLowerCase())
       );
       setFilterInternship(filterData);
+      
+
+      
     
+      
+    }
   };
 
   useEffect(() => {
@@ -53,7 +73,7 @@ function Intern() {
       <div className="flex internship-filter">
         <div className="first-int mb-14">
           <div className="filter-section w-1/6">
-            <p id="filter-ico" className=" text-center">
+          <p  className="text-center">
               <i onClick={showDiv} class="bi bi-funnel  text-blue-400"></i>{" "}
               Filter
             </p>
@@ -64,7 +84,7 @@ function Intern() {
                 id="pro"
                 value={serachCategory}
                 onChange={handleCategoryChange}
-                className="profile border-2 mr-3 w-full"
+                className="profile border-2 rounded-md mr-3 w-full"
                 placeholder="Profile manager"
               />
               <label htmlFor="loc">Location</label>
@@ -73,12 +93,12 @@ function Intern() {
                 id="loc"
                 value={searchLoaction}
                 onChange={handleCategoryLocationChange}
-                className="location border-2   w-full"
+                className="location border-2 rounded-md w-full"
                 placeholder="Mumbai"
               />
             </div>
             <div className=" preferences mt-8 flex flex-col">
-              <div className="flex mt-3 ml-3 mr-3">
+              <div className="flex mt-1 ml-3 mr-3">
                 <input
                   type="checkbox"
                   name="wfh"
@@ -87,7 +107,7 @@ function Intern() {
                 />
                 <label htmlFor="wfh">Work From home</label>
               </div>
-              <div className="flex mt-3 ml-3 mr-3">
+              <div className="flex mt-1 mb-4 ml-3 mr-3">
                 <input
                   type="checkbox"
                   name="pt"
@@ -97,13 +117,13 @@ function Intern() {
                 <label htmlFor="pt">Part-time</label>
               </div>
               <p>Desired minimum monthly Stipend (₹)</p>
-              <input type="range" name="" id="" />
+              <input className="mt-2" type="range" name="" id="" />
               <p className="mt-2 ml-3 mr-3">
-                0 2K &nbsp; 4k &nbsp; 6K &nbsp; 8k &nbsp; 10K
+                0 &nbsp; 2K &nbsp; 4k &nbsp; 6K &nbsp; 8k &nbsp; 10K
               </p>
             </div>
 
-            <p className=" mt-5 text-blue-400">
+            <p className=" mt-3 text-blue-400">
               View more filters <i class="bi bi-chevron-down"></i>
             </p>
             <span className="justify-end flex text-blue-400 mr-3">
@@ -112,7 +132,7 @@ function Intern() {
           </div>
           <div className="search-2">
             <div className="search-container">
-              <input type="text" placeholder="eg. Design Media MBA" />
+              <input type="text" placeholder="eg. Design Media MBA" className="rounded-md mr-1" />
               <div className="search-icon">
                 <i class="bi bi-search"></i>
               </div>
@@ -120,12 +140,12 @@ function Intern() {
           </div>
         </div>
 
+        <div className="all-internships">
           <div className=" show show2 flex justify-center">
-            <p id="filter-ico" className=" text-center" onClick={showDiv}>
+            <p  id="filter-ico" className=" filterico text-center" onClick={showDiv}>
               filter <i class="bi bi-funnel  text-blue-400"></i>{" "}
             </p>
           </div>
-        <div className="all-internships">
         
           <p className="head font-bold text-lg text-center ">
             {filterInternship.length} total internships
@@ -184,7 +204,7 @@ function Intern() {
                     id="viewButtons"
                     className="bg-transparent text-blue-500"
                   >
-                    View In Deatils
+                    View In Details
                   </button>
                 </Link>
               </div>
@@ -193,6 +213,89 @@ function Intern() {
         ))}
         </div>
       </div>
+
+      {
+        isDivVisible &&(
+          <>
+          <div className="first2-int mb-14">
+          <div className="filter-section w-1/6">
+          <button id='close-btn' onClick={hidediv}><i class=" text-3xl bi bi-x"></i></button>
+          <p  className="text-center">
+              <i onClick={showDiv} class="bi bi-funnel  text-blue-400"></i>{" "}
+              Filter
+            </p>
+            <div className="fill flex flex-col ml-2">
+              <label htmlFor="pro">Profile</label>
+              <input
+                type="text"
+                id="pro"
+                value={serachCategory}
+                onChange={handleCategoryChange}
+                className="profile border-2 rounded-md mr-3 w-full"
+                placeholder="Profile manager"
+              />
+              <label htmlFor="loc">Location</label>
+              <input
+                type="text"
+                id="loc"
+                value={searchLoaction}
+                onChange={handleCategoryLocationChange}
+                className="location border-2 rounded-md w-full"
+                placeholder="Mumbai"
+              />
+            </div>
+            <div className=" preferences mt-8 flex flex-col">
+              <div className="flex mt-1 ml-3 mr-3">
+                <input
+                  type="checkbox"
+                  name="wfh"
+                  id="whf"
+                  className="mr-2 ml-3"
+                />
+                <label htmlFor="wfh">Work From home</label>
+              </div>
+              <div className="flex mt-1 mb-4 ml-3 mr-3">
+                <input
+                  type="checkbox"
+                  name="pt"
+                  id="whf"
+                  className="mr-2 ml-3"
+                />
+                <label htmlFor="pt">Part-time</label>
+              </div>
+              <p>Desired minimum monthly Stipend (₹)</p>
+              <input className="mt-2" type="range" name="" id="" />
+              <p className="mt-2 ml-3 mr-3">
+                0 &nbsp; 2K &nbsp; 4k &nbsp; 6K &nbsp; 8k &nbsp; 10K
+              </p>
+            </div>
+
+            <p className=" mt-3 text-blue-400">
+              View more filters <i class="bi bi-chevron-down"></i>
+            </p>
+            <span className="justify-end flex text-blue-400 mr-3">
+              Clear all
+            </span>
+          </div>
+          <div className="search-2">
+            <div className="search-container">
+              <input type="text" placeholder="eg. Design Media MBA" className="rounded-md mr-1" />
+              <div className="search-icon">
+                <i class="bi bi-search"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+         <div className=" show show2 flex justify-center">
+            <p id="filter-ico" className=" text-center" >
+              filter <i class="bi bi-funnel  text-blue-400" onClick={showDiv}></i>{" "}
+            </p>
+          </div>
+
+          </>
+
+        )
+      }
     </>
   );
 }

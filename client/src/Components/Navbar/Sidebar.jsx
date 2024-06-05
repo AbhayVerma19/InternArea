@@ -3,7 +3,7 @@ import logo from "../../Assets/logo.png"
 import './sidebar.css'
 import { Link, useNavigate } from 'react-router-dom'
 //import { useSelector } from 'react-redux';
-import { selectUser } from '../../Feature/Userslice';
+//import { selectUser } from '../../Feature/Userslice';
 import { signOut } from 'firebase/auth';
 import { auth } from '../../firebase/firebase';
 

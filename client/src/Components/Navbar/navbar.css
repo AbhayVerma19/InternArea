@@ -2,6 +2,10 @@
     margin: 0;
     padding: 0;
 }
+
+.login{
+  box-shadow: 0px 0px 5px -2px black;
+}
 img{
     width: 120px;
 }
@@ -97,16 +101,17 @@ font-weight: 500;
     border-radius: 2px;
 }
 #bt{
-  color: white;
+  color: #078edd;
   outline: #078edd 2px solid;
-  background-color: #078edd;
+  /* background-color: #078edd; */
   border: none;
-  width: 70px;
+  width: 90px;
   margin-left: 49rem;
   height: 25px;
   font-size: 16px;
   margin-top: 18px;
   border-radius: 2px;
+  
 }
 @media screen and (max-width: 768px) {
     .nav1{
@@ -120,9 +125,7 @@ font-weight: 500;
     font-size: 34px;
 }
 
-.login{
-    box-shadow: 0px 0px 5px -2px black;
-}
+
 
 /* .location{
     top: 6rem;
@@ -133,7 +136,7 @@ font-weight: 500;
   #ico3{
     position: absolute;
     top: 38%;
-    left: 23rem;
+    left: 21rem;
   }
   .Profile{
     top: 0rem;
@@ -207,7 +210,7 @@ left: 22%;
 #picpro{
  
   position: relative;
-  left: 666%;
+  left: 600%;
   top: 8px;
 }
 #ico2{

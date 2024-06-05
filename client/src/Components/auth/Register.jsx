@@ -40,17 +40,17 @@ function Register() {
     <div>
       <div className="form">
         <h1>Sing-up and Apply For Free</h1>
-        <p className="para3">1,50,000+ companies hiring on Internshala</p>
+        <p className="para3">1,50,000+ companies hiring on InternArea</p>
         <div className="regi">
           <div className="py-6">
             <div className="flex bg-white rounded-lg justify-center shadow-lg overflow-hidden mx-auto max-w-sm lg:max-w-4xl">
               <div className="w-full p-8 lg:w-1/2">
                 <a
                   onClick={handleSingin}
-                  class="flex items-center h-9 justify-center mt-4 text-white rounded-lg shadow-md hover:bg-gray-100"
+                  className="flex items-center h-9 justify-center mt-4 text-white rounded-lg shadow-md hover:bg-gray-100"
                 >
-                  <div class="px-4 py-3 cursor-pointer">
-                    <svg class="h-6 w-6" viewBox="0 0 40 40">
+                  <div className="px-4 py-3 cursor-pointer">
+                    <svg className="h-6 w-6" viewBox="0 0 40 40">
                       <path
                         d="M36.3425 16.7358H35V16.6667H20V23.3333H29.4192C28.045 27.2142 24.3525 30 20 30C14.4775 30 10 25.5225 10 20C10 14.4775 14.4775 9.99999 20 9.99999C22.5492 9.99999 24.8683 10.9617 26.6342 12.5325L31.3483 7.81833C28.3717 5.04416 24.39 3.33333 20 3.33333C10.7958 3.33333 3.33335 10.7958 3.33335 20C3.33335 29.2042 10.7958 36.6667 20 36.6667C29.2042 36.6667 36.6667 29.2042 36.6667 20C36.6667 18.8825 36.5517 17.7917 36.3425 16.7358Z"
                         fill="#FFC107"
@@ -69,7 +69,7 @@ function Register() {
                       />
                     </svg>
                   </div>
-                  <h1 class="cursor-pointer px-4 py-3 w-5/6 text-center text-xl text-gray-600 font-bold">
+                  <h1 className="cursor-pointer px-4 py-3 w-5/6 text-center text-xl text-gray-600 font-bold">
                     Sign in with Google
                   </h1>
                 </a>
@@ -168,7 +168,7 @@ function Register() {
         {isDivVisible && (
           <>
             <button id="cross" onClick={closeLogin}>
-              <i class="bi bi-x"></i>
+              <i className="bi bi-x"></i>
             </button>
             <h5 id="state" className="mb-4 justify-center text-center">
               <span
@@ -200,7 +200,7 @@ function Register() {
  items-center h-9 justify-center mt-4 text-white bg-slate-100 rounded-lg hover:bg-gray-100"
                       >
                         <div className="px-4 py-3">
-                          <svg class="h-6 w-6" viewBox="0 0 40 40">
+                          <svg className="h-6 w-6" viewBox="0 0 40 40">
                             <path
                               d="M36.3425 16.7358H35V16.6667H20V23.3333H29.4192C28.045 27.2142 24.3525 30 20 30C14.4775 30 10 25.5225 10 20C10 14.4775 14.4775 9.99999 20 9.99999C22.5492 9.99999 24.8683 10.9617 26.6342 12.5325L31.3483 7.81833C28.3717 5.04416 24.39 3.33333 20 3.33333C10.7958 3.33333 3.33335 10.7958 3.33335 20C3.33335 29.2042 10.7958 36.6667 20 36.6667C29.2042 36.6667 36.6667 29.2042 36.6667 20C36.6667 18.8825 36.5517 17.7917 36.3425 16.7358Z"
                               fill="#FFC107"
@@ -219,7 +219,9 @@ function Register() {
                             />
                           </svg>
                         </div>
-                        <h1 className="text-gray-500">Login With Google</h1>
+                        <h1 className="px-4 py-3 w-5/6 text-center text-sm text-gray-600 font-bold">
+                          Login with Google
+                        </h1>
                       </p>
                       <div className="mt-4 flex items-center justify-between">
                         <span className="border-b- w-1/5 lg:w-1/4"></span>
@@ -229,27 +231,27 @@ function Register() {
                         </p>
                         <span className="border-b- w-1/5 lg:w-1/4"></span>
                       </div>
-                      <div class="mt-4">
-                        <label class="block text-gray-700 text-sm font-bold mb-2">
+                      <div className="mt-4">
+                        <label className="block text-gray-700 text-sm font-bold mb-2">
                           Email{" "}
                         </label>
                         <input
-                          class=" text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"
+                          className=" text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"
                           type="email"
                           placeholder="john@example.com"
                         />
                       </div>
-                      <div class="mt-4">
-                        <div class="flex justify-between">
-                          <label class="block text-gray-700 text-sm font-bold mb-2">
+                      <div className="mt-4">
+                        <div className="flex justify-between">
+                          <label className="block text-gray-700 text-sm font-bold mb-2">
                             Password
                           </label>
-                          <a href="/" class="text-xs text-blue-500">
+                          <a href="/" className="text-xs text-blue-500">
                             Forget Password?
                           </a>
                         </div>
                         <input
-                          class=" text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"
+                          className=" text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"
                           placeholder="Must be atleast 6 characters"
                           type="password"
                         />
@@ -287,27 +289,27 @@ function Register() {
               <>
                 <div className="flex bg-white rounded-lg justify-center overflow-hidden mx-auto max-w-sm lg:max-w-4xl">
                   <div className="w-full p-8 lg:w-1/2">
-                    <div class="mt-4">
-                      <label class="block text-gray-700 text-sm font-bold mb-2">
+                    <div className="mt-4">
+                      <label className="block text-gray-700 text-sm font-bold mb-2">
                         Email{" "}
                       </label>
                       <input
-                        class=" text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"
+                        className=" text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"
                         type="email"
                         placeholder="john@example.com"
                       />
                     </div>
-                    <div class="mt-4">
-                      <div class="flex justify-between">
-                        <label class="block text-gray-700 text-sm font-bold mb-2">
+                    <div className="mt-4">
+                      <div className="flex justify-between">
+                        <label className="block text-gray-700 text-sm font-bold mb-2">
                           Password
                         </label>
-                        <a href="/" class="text-xs text-blue-500">
+                        <a href="/" className="text-xs text-blue-500">
                           Forget Password?
                         </a>
                       </div>
                       <input
-                        class=" text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"
+                        className=" text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"
                         placeholder="Must be atleast 6 characters"
                         type="password"
                       />

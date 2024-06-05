@@ -2050,4 +2050,4 @@ Stipend structure: This is a performance-based internship. In addition to the mi
 
 ];
 
-module.exports = JobData
+export default JobData
