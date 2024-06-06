@@ -93,7 +93,7 @@ console.log(application)
              <p class="leading-relaxed text-base"> Applied by  {data.user.name}</p>
              <p class="leading-relaxed text-base"> Applied on  {new Date(data?.createAt).toLocaleDateString()}</p>
              <p class="leading-relaxed text-base"> Application status  {data.status}</p>
-             <Link to={`/detailApplicationUser?a=${data._id}`} class="mt-3 text-indigo-500 inline-flex items-center">View in deatil
+             <Link to={`/detailApplicationUser?a=${data._id}`} class="mt-3 text-indigo-500 inline-flex items-center">View in Detail
              <i class="bi bi-chevron-compact-right text-blue-500" ></i>              
              </Link>
            </div>

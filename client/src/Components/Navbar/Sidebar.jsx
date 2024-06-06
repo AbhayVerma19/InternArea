@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react'
 import logo from "../../Assets/logo.png"
 import './sidebar.css'
 import { Link, useNavigate } from 'react-router-dom'
-//import { useSelector } from 'react-redux';
-//import { selectUser } from '../../Feature/Userslice';
+import { useSelector } from 'react-redux';
+import { selectuser } from '../../feature/UserSlice';
 import { signOut } from 'firebase/auth';
 import { auth } from '../../firebase/firebase';
 
@@ -36,8 +36,7 @@ const navigate=useNavigate()
     navigate("/")
   
 }
-  const user=null
-  //useSelector(selectUser)
+  const user=useSelector(selectuser)
   return (
 
     <>
@@ -95,7 +94,7 @@ const navigate=useNavigate()
   <p>More</p>
   </Link>
   <button className='bt-log' id='bt' onClick={logoutFunction}>Logout <i class="bi bi-box-arrow-right"></i></button>
-  <br />
+  
   <br />
 <button onClick={logoutFunction}>Log Out <i class="bi bi-box-arrow-right"></i></button>
   
@@ -106,8 +105,8 @@ const navigate=useNavigate()
 
   
   <div className="addmore">
-  <p>Register- As a Student</p>
-  <p>Register- As a Employer</p>
+  <p><Link to={"/register"}>Register/Login</Link></p>
+  <p><Link to={"/adminLogin"}>Admin Login</Link></p>
   <br />
   <br />
 
