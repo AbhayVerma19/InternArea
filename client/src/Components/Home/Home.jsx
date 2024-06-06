@@ -18,7 +18,7 @@ function Home() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/internship`,
+          `https://internarea-clone.onrender.com/api/internship`,
           { timeout: 10000 }
         );
         setInternshipData(response.data);

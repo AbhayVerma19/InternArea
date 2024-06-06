@@ -15,9 +15,11 @@ function JobAvl() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/job`);
+        const response = await axios.get(
+          `https://internarea-clone.onrender.com/api/job`
+        );
         setJobData(response.data);
-        setFilterJob(response.data)
+        setFilterJob(response.data);
       } catch (error) {
         console.log(error);
       }
@@ -44,19 +46,16 @@ function JobAvl() {
     setFilterJob([serachCategory, loactionValue]);
   };
 
-  const filterJobs = (category="", location="") => {
+  const filterJobs = (category = "", location = "") => {
     if (jobData && jobData.length > 0) {
-     
-    
-    const filterData = jobData.filter(
-      (Job) =>
-        Job.category.toLowerCase().includes(category.toLowerCase()) &&
-        Job.location.toLowerCase().includes(location.toLowerCase())
-    );
-    setFilterJob(filterData);
-  
+      const filterData = jobData.filter(
+        (Job) =>
+          Job.category.toLowerCase().includes(category.toLowerCase()) &&
+          Job.location.toLowerCase().includes(location.toLowerCase())
+      );
+      setFilterJob(filterData);
+    }
   };
-}
 
   useEffect(() => {
     filterJobs(serachCategory, searchLoaction);

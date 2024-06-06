@@ -15,13 +15,15 @@ function JobDetail() {
   let search = window.location.search;
   const params = new URLSearchParams(search);
   const id = params.get("q");
-  console.log(params)
-  console.log(id)
-  console.log(search)
+  console.log(params);
+  console.log(id);
+  console.log(search);
   const [data, setData] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get(`http://localhost:5000/api/job/${id}`);
+      const response = await axios.get(
+        `https://internarea-clone.onrender.com/api/job/${id}`
+      );
 
       const { company, category } = response.data;
       setCompany(company);
@@ -51,7 +53,7 @@ function JobDetail() {
       };
 
       await axios
-        .post("http://localhost:5000/api/application", bodyJson)
+        .post("https://internarea-clone.onrender.com/api/application", bodyJson)
         .then((res) => {})
         .catch((err) => {
           alert("error happend");
@@ -147,7 +149,10 @@ function JobDetail() {
           </p>
           <p className="text-start">{data.numberOfopning}</p>
           <div className="flex justify-center mt-6 bg-blue-500 w-40 text-center text-white font-bold cursor-pointer">
-            <button className="flex justify-center align-middle " onClick={show}>
+            <button
+              className="flex justify-center align-middle "
+              onClick={show}
+            >
               Apply
             </button>
           </div>
@@ -226,7 +231,11 @@ function JobDetail() {
             <p className="mt-5 font-semibold text-xl">
               Custom resume <span className="text-slate-500">(Optional)</span>
             </p>
-            <input className="ml-3 w-3/5" type="text" placeholder="Employer can download and view this resume"></input>
+            <input
+              className="ml-3 w-3/5"
+              type="text"
+              placeholder="Employer can download and view this resume"
+            ></input>
 
             <div className="submit flex justify-center">
               {user ? (
