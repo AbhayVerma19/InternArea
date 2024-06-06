@@ -19,6 +19,8 @@ import { selectuser, login, logout } from "./feature/UserSlice";
 import { useEffect } from "react";
 import { auth } from "./firebase/firebase";
 import DetailApplication from "./Applications/DetailApplication";
+import DetailApplicationUser from "./Applications/DetailApplicationUser";
+import UserApplication from "./profile/UserApplication"
 
 function App() {
   const user = useSelector(selectuser);
@@ -58,6 +60,8 @@ function App() {
         <Route path="/postJob" element={<PostJOb />} />
         <Route path="/applications" element={<ViewAllApplication />} />
         <Route path="/detailApplication" element={<DetailApplication />} />
+        <Route path='/detailApplicationUser' element={<DetailApplicationUser/>}/>
+        <Route path='/userapplication' element={<UserApplication/>}/>
       </Routes>
       <Footer />
     </div>

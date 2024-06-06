@@ -32,7 +32,7 @@ function Profile() {
             </div>
             <div className="flex justify-center mt-3">
               <Link
-                to="/applications"
+                to="/userapplication"
                 class="relative inline-flex items-center px-12 py-3 overflow-hidden text-lg font-medium text-indigo-600 border-2 border-indigo-600 rounded-full hover:text-white group hover:bg-gray-50"
               >
                 <span class="absolute left-0 block w-full h-0 transition-all bg-indigo-600 opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease"></span>
@@ -52,7 +52,7 @@ function Profile() {
                     ></path>
                   </svg>
                 </span>
-                <span class="relative">Button Text</span>
+                <span class="relative">My Applications</span>
               </Link>
             </div>
           </div>
