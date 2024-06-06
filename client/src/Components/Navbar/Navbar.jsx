@@ -141,7 +141,8 @@ function Navbar() {
           {user ? (
             <>
               <button className="bt-log" id="bt" onClick={logoutFunction}>
-                Logout <i className="bi bi-box-arrow-right"></i>
+                Logout 
+                {/* <i className=" bi bi-box-arrow-right"></i> */}
               </button>
             </>
           ) : (

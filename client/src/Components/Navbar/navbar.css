@@ -101,9 +101,9 @@ font-weight: 500;
     border-radius: 2px;
 }
 #bt{
-  color: #078edd;
+  color: white;
   outline: #078edd 2px solid;
-  /* background-color: #078edd; */
+  background-color: #078edd;
   border: none;
   width: 90px;
   margin-left: 49rem;
@@ -112,6 +112,10 @@ font-weight: 500;
   margin-top: 18px;
   border-radius: 2px;
   
+}
+#bt:hover{
+  color: #078edd;
+  background-color: #fff;
 }
 @media screen and (max-width: 768px) {
     .nav1{

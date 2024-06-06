@@ -11,14 +11,14 @@ import InternDeatil from "./Components/Internships/InternDetail";
 import Profile from "./profile/Profile";
 import AdminLogin from "./Admin/AdminLogin";
 import Adminpanel from "./Admin/Adminpanel";
- import ViewAllApplication from "./Admin/ViewAllApplication";
- import Postinternships from "./Admin/Postinternships";
- import PostJOb from "./Admin/PostJob";
+import ViewAllApplication from "./Admin/ViewAllApplication";
+import Postinternships from "./Admin/Postinternships";
+import PostJOb from "./Admin/PostJob";
 import { useSelector, useDispatch } from "react-redux";
 import { selectuser, login, logout } from "./feature/UserSlice";
 import { useEffect } from "react";
 import { auth } from "./firebase/firebase";
-//import DeatilApplication from "./Applications/DeatilApplication";
+import DetailApplication from "./Applications/DetailApplication";
 
 function App() {
   const user = useSelector(selectuser);
@@ -54,9 +54,10 @@ function App() {
         <Route path="/detailInternship" element={<InternDeatil />} />
         <Route path="/adminLogin" element={<AdminLogin />} />
         <Route path="/adminpanel" element={<Adminpanel />} />
-        <Route path="/postInternship" element={<Postinternships />} /> 
-        <Route path="/postJob" element={<PostJOb />} /> 
-       <Route path="/applications" element={<ViewAllApplication />} />
+        <Route path="/postInternship" element={<Postinternships />} />
+        <Route path="/postJob" element={<PostJOb />} />
+        <Route path="/applications" element={<ViewAllApplication />} />
+        <Route path="/detailApplication" element={<DetailApplication />} />
       </Routes>
       <Footer />
     </div>

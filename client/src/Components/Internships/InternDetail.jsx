@@ -198,8 +198,7 @@ const submitApplication= async()=>{
         </label>
       </div>
       <p className='mt-5 font-semibold text-xl'>Custom resume <span className='text-slate-500'>(Optional)</span></p>
-      <small className='text-slate-500'>Employer can download and view this resume</small>
-
+      <input className="ml-3 w-3/5" type="text" placeholder="Employer can download and view this resume"></input>
  
       <div className="submit flex justify-center">
         {user?(

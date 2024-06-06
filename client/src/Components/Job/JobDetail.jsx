@@ -15,6 +15,9 @@ function JobDetail() {
   let search = window.location.search;
   const params = new URLSearchParams(search);
   const id = params.get("q");
+  console.log(params)
+  console.log(id)
+  console.log(search)
   const [data, setData] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
@@ -37,7 +40,7 @@ function JobDetail() {
   const submitApplication = async () => {
     const text = document.getElementById("text");
     if (text.value === "") {
-      alert("Fill the mendetory fildes");
+      alert("Fill the Mandatory fields");
     } else {
       const bodyJson = {
         coverLetter: textarea,
@@ -143,8 +146,8 @@ function JobDetail() {
             Number of opening
           </p>
           <p className="text-start">{data.numberOfopning}</p>
-          <div className="flex justify-center mt-6 bg-blue-500 w-40 text-center text-white font-bold ">
-            <button className="flex justify-center align-middle" onClick={show}>
+          <div className="flex justify-center mt-6 bg-blue-500 w-40 text-center text-white font-bold cursor-pointer">
+            <button className="flex justify-center align-middle " onClick={show}>
               Apply
             </button>
           </div>
@@ -178,8 +181,8 @@ function JobDetail() {
                 value={textarea}
                 onChange={(e) => setTextare(e.target.value)}
               ></textarea>
-              <p className="mt-5 font-semibold text-xl">your availiblity</p>
-              <p>confirme your availiblity</p>
+              <p className="mt-5 font-semibold text-xl">Your Availiblity</p>
+              <p>Confirm your availiblity</p>
             </div>
             <div>
               <label>
@@ -223,9 +226,7 @@ function JobDetail() {
             <p className="mt-5 font-semibold text-xl">
               Custom resume <span className="text-slate-500">(Optional)</span>
             </p>
-            <small className="text-slate-500">
-              Employer can download and view this resume
-            </small>
+            <input className="ml-3 w-3/5" type="text" placeholder="Employer can download and view this resume"></input>
 
             <div className="submit flex justify-center">
               {user ? (
